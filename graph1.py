@@ -140,6 +140,33 @@ class Graph:
         return "No Path"
     ##############################
     
+     def printGetPath(self,intmap,u,v):
+        var=v
+        print(v, end=" ")
+        while var!=u:
+            print(intmap[var],end=" ")
+            var=intmap[var]
+    
+    def getPathBFS(self,u,v):
+        visited=[False]*(len(self.graph))
+        queue=[]
+        queue.append(u)
+        visited[u]=True
+        intmap={}
+        while queue:
+            var=queue.pop(0)
+            if(var==v):
+                self.printGetPath(intmap,u,v)
+                # return "Yes Path"
+            for i in self.graph[var]:
+                if visited[i]==False:
+                    queue.append(i)
+                    visited[i]=True
+                    # if i in intmap:
+                    #     pass
+                    # else:
+                    intmap[i]=var
+        return "No Path"
      
     
             
